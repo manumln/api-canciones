@@ -20,19 +20,6 @@ use UnexpectedValueException;
  */
 class JWK
 {
-    /**
-     * Parse a set of JWK keys
-     *
-     * @param array $jwks The JSON Web Key Set as an associative array
-     *
-     * @return array An associative array that represents the set of keys
-     *
-     * @throws InvalidArgumentException     Provided JWK Set is empty
-     * @throws UnexpectedValueException     Provided JWK Set was invalid
-     * @throws DomainException              OpenSSL failure
-     *
-     * @uses parseKey
-     */
     public static function parseKeySet(array $jwks)
     {
         $keys = array();

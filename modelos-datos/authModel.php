@@ -1,25 +1,17 @@
 <?php
 
-/**
- * Modelo para la authenticación.
- */
 class AuthModel
 {
 	private $connection;
 	
 	public function __construct(){
-		$this->connection = new mysqli('127.0.0.1', 'root', 'santi', 'api-pueblos', '3306');
+		$this->connection = new mysqli('127.0.0.1', 'root', 'manu', 'api-canciones', '3306');
 
 		if($this->connection->connect_errno){
 			echo 'Error de conexión a la base de datos';
 			exit;
 		}
 	}
-
-	/**
-	 * Este método, recibe el email y el password ya codificado.
-	 * Realiza una query, devolviendo el id, nombres a partir del username y de la password codificada.
-	 */
 
 	public function login($email, $password)
 	{
@@ -35,13 +27,8 @@ class AuthModel
 			}
 		}
 
-		//devuelve un array con el id, nombres y username.
 		return $resultArray;
 	}
-
-	/**
-	 * Setea el token a partir del id. Cada logeo, tenemos que actualizar el registro.
-	 */
 
 	public function update($id, $token)
 	{
@@ -56,9 +43,6 @@ class AuthModel
 		return $this->connection->affected_rows;
 	}
 
-	/**
-	 * Retorna el token dado un id de usuario.
-	 */
 	public function getById($id)
 	{
 		$query = "SELECT token FROM usuarios WHERE id = $id";
@@ -76,11 +60,8 @@ class AuthModel
 		return $resultArray;
 	}
 
-
-
 	public function insertarLog($milog){
 		$query = "INSERT INTO log (log) VALUES('$milog')";
-		//echo $query;exit;
 		$this->connection->query($query);
 	}
 
@@ -98,7 +79,6 @@ class AuthModel
 			}
 		}
 
-		//devuelve un array con el id, nombres y username.
 		return $resultArray;
 	}
 }

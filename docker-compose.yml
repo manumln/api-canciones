@@ -33,7 +33,7 @@ services:
             - 8000:80
         environment:
             MYSQL_USER: root
-            MYSQL_PASSWORD: santi
-            MYSQL_ROOT_PASSWORD: santi 
+            MYSQL_PASSWORD: manu
+            MYSQL_ROOT_PASSWORD: manu 
 volumes:
     persistent:

@@ -30,7 +30,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $params = $_GET;
         $usuarios = $user->get($params);
 
-        // Formatea la URL de las imágenes
         $url_raiz_img = "http://" . $_SERVER['HTTP_HOST'] . "/api-canciones/public/img";
         foreach ($usuarios as &$usuario) {
             if (!empty($usuario['imagen'])) {
